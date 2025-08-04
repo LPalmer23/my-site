@@ -63,6 +63,7 @@
     background-color: black;
     padding: 1rem 0;
     z-index: 10;
+    flex-wrap: wrap;
   }
 
 
@@ -191,8 +192,36 @@
   }
   
 
+  @media (max-width: 768px) {
+    body {
+      font-size: 14px;
+      padding: 1rem;
+    }
   
-
+    #typewriter {
+      font-size: 1.2rem;
+    }
+  
+    .section {
+      font-size: 1.5rem;
+      padding: 2rem 1rem;
+    }
+  
+    #flower-container {
+      display: none; /* optional: hide SVG if too complex on phones */
+    }
+  
+    .typewriter-container,
+    .content {
+      margin-left: 0;
+      padding: 1rem;
+    }
+  
+    #navbar a {
+      font-size: 0.9rem;
+    }
+  }
+  
   
 
 
