@@ -1,0 +1,198 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    background-color: black;
+    color: white;
+    font-family: 'Fira Code', monospace;
+    scroll-behavior: smooth;
+  }
+  
+  /* Intro typing screen */
+  #intro {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 40px;
+    align-items: flex-start;
+    font-family: 'Courier Prime', monospace;
+    letter-spacing: 0.05em; 
+    font-size: 1.8rem;
+    color: #f5f5f5; /* or #fdf6e3 for a paper-like feel */
+
+    padding-top: 80px;
+  }
+  
+  #typewriter {
+    font-size: 1.8rem;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 2px solid white;
+    width: 0;
+    animation: typing 3s steps(30, end) forwards, blink 0.7s step-end infinite;
+  }
+  
+  @keyframes typing {
+    to {
+      width: 24ch;
+    }
+  }
+  @keyframes blink {
+    50% {
+      border-color: transparent;
+    }
+  }
+  
+  /* Navbar hidden at first */
+  #navbar {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    gap: 1rem;              
+    opacity: 0;
+    transition: opacity 1.5s ease;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: black;
+    padding: 1rem 0;
+    z-index: 10;
+  }
+
+
+  #navbar.visible {
+    opacity: 1;
+  }
+  
+  #navbar a {
+    color: white;
+    margin: 0 1rem;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+  }
+  
+  #navbar a:hover {
+    color: #0ff;
+  }
+  
+  /* Section layout */
+  .section {
+    min-height: 35vh;
+    padding: 4rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+  }
+  
+  /* SVG drawing section */
+  #svg-section {
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #mySVG path {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    transition: stroke-dashoffset 2s ease-out;
+  }
+  
+  #flower-container path {
+    stroke: white;
+    stroke-width: 2;
+    fill: none;
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    transition: stroke-dashoffset 0.3s linear;
+  }
+  
+  
+  #flower-container svg {
+    height: 1000px;         /* Match SVG height */
+    width: auto;
+  }
+  
+
+  body {
+    margin: 0;
+    font-family: 'Fira Code', monospace;
+    overflow-x: hidden;
+  }
+  
+  #flower-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 150px;
+    z-index: 0;
+    pointer-events: none;
+    overflow: visible;
+  }
+  
+  #flower-svg {
+    height: 800vh;
+  width: auto;
+  display: block;
+  margin-left: 0;
+  margin-right: auto;
+  }
+  
+  .typewriter-container {
+    margin-left: 200px; /* Leaves room for flower */
+    padding: 50px;
+    z-index: 1;
+    position: relative;
+  }
+  
+  .content {
+    margin-left: 200px;
+    padding: 50px;
+  }
+
+  #flower-container path {
+    stroke: white;
+    stroke-width: 2;
+    fill: none;
+    
+  }
+
+  #flower-svg path {
+    stroke: white /* Or whatever color you want */
+    fill: none;
+    stroke-width: 2;
+    stroke-dasharray: 1000; /* Will be overridden dynamically */
+    stroke-dashoffset: 1000;
+    transition: stroke-dashoffset 0.2s linear;
+  }
+  
+  #svg-section {
+    height: 300vh; /* allows for more scroll room */
+    position: relative;
+  }
+  
+  
+  #flower-svg {
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 00vh;
+    width: auto;
+    z-index: 0;
+  }
+  
+
+  
+
+  
+
+
