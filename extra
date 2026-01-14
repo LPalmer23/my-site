@@ -1,0 +1,149 @@
+<!-- OLD CODE -->
+  <section id="projects" class="section">📁 Projects go here
+    <div class="section-paragraph fade-in fade-in-right">
+      <h2>CollegeCarpool</h2>
+      <p>
+        Every holiday break, students scramble to get home — overpriced trains, crowded buses, or flights that burn cash and carbon.
+        After meeting countless BU students from NJ and NY, I thought: why not carpool?
+        CollegeCarpool connects students heading the same way to cut costs, skip travel chaos, save some carbon, and make a friend on the way home for the holidays.
+        With funding from BU’s iBUild Lab Seed Grant, we built this site.
+      </p>
+    </div>
+
+    <div class="section-paragraph fade-in fade-in-left">
+      <h2>Vertical Aeroponics</h2>
+      <p>
+        Between 2017 and 2023, over $2 billion was poured into vertical farming startups—most of which collapsed by 2024.
+        But while big ventures failed, small-scale models like <a href="https://greenbronxmachine.org/" target="_blank">Stephen Ritz’s Green Bronx Machine</a>
+        were making a big impact—growing thousands of pounds of produce in Bronx classrooms.
+        Inspired by that model, we’re studying the feasibility of operating this technology—tracking the exact energy and resource inputs—and modeling how small-scale aeroponics in pre-existing infrastructure could be scaled more widely to fight food insecurity and cut the carbon footprint of traditional, far-away agriculture.
+      </p>
+    </div>
+
+    <div class="section-paragraph fade-in fade-in-right">
+      <h2>BU Energy Insights</h2>
+      <p>
+        While working with BU Facilities & Management, I learned about BU’s contract with ISO-NE and the importance of reducing peak-hour demand.
+        When demand spikes, the grid turns to its dirtiest generators—coal and oil.
+        I created a website that alerts building administrators ahead of predicted peaks and tracks whether energy-saving actions had a measurable impact.
+      </p>
+    </div>
+  </section>
+
+  <section id="work" class="section">💼 Work experience content
+    <div class="section-paragraph fade-in fade-in-left">
+      <h2>Kilachand Leadership</h2>
+      <p>
+        In an effort to give back to the Honors College community, I ran for Class Representative and Treasurer on the Kilachand Leadership Advisory Board.
+        Our focus is on strengthening student connections and exposing peers to engaging, interdisciplinary opportunities—from city planning workshops to mock policy debates.
+        I’m currently planning a student-led panel series showcasing students with diverse career paths to highlight the key lessons and steps that helped them land their dream internships and jobs.
+      </p>
+    </div>
+    
+    <div class="section fade-in-right">
+      <h2>Harvard IT</h2>
+      <p>
+        During the school year, I work part-time as an IT User Assistant at Harvard.
+        I’ve learned how to efficiently troubleshoot hybrid classrooms and provide clear, effective support—helping ensure students can learn to their fullest potential without disruption.
+      </p>
+    </div>
+  </section>
+
+  <section id="volunteer" class="section">🫶 Volunteering activities
+    <div class="section fade-in-left">
+      <h2>Tutoring & Mentorship</h2>
+      <p>
+        Tutoring has always been a meaningful part of my life. In high school, I joined YASH and LEAF to support younger students through reading and math.
+        As a half Puerto Rican college student, I’m building a mentorship program connecting Spanish-speaking students with kids in Puerto Rico—offering academic support and encouragement in an education system well underfunded and often overlooked.
+      </p>
+    </div>
+    
+    <div class="section fade-in-right">
+      <h2>Appalachia Service Project</h2>
+      <p>
+        One of my favorite volunteering experiences was with the Appalachia Service Project—a phenomenal organization that teaches students construction skills while offering free home repairs to low-income communities.
+        I was lucky enough to visit West Virginia and help insulate an entire roof for a family living in a mobile home park.
+      </p>
+    </div>
+
+
+  </section>
+
+  <section id="contact" class="section">📨 Contact me form/info
+    <div class="section fade-in-center">
+      <h2>Let's Connect!</h2>
+      <p>
+        I love discussing emerging technology—from organ-delivery drones to solar battery innovation. Reach out if you’d like to chat or join a project!
+        I’m also looking for more people to join my camping and hiking trips!
+      </p>
+      <ul>
+        <li><a href="/resume.pdf" target="_blank">Resume</a></li>
+        <li><a href="https://github.com/LPalmer23" target="_blank">GitHub</a></li>
+        <li><a href="https://www.bu.edu/khc/kilachand-student-government/" target="_blank">BU Student Government Post</a></li>
+        <li><a href="mailto:lydiapalmer@bu.edu">Email Me</a></li>
+      </ul>
+    </div>
+
+  </section>
+  <!-- OLD CODE end -->
+
+
+
+
+
+
+    <!-- NEW CODE start-->
+
+<!-- Projects -->
+<section id="projects" class="section">
+    <div class="content">
+      <p class="section-paragraph fade-in fade-in-left">
+        🚀 <strong>CollegeCarpool</strong> — a BU student ridesharing site with Firebase Auth and Google Maps routing.
+      </p>
+      <p class="section-paragraph fade-in fade-in-right">
+        🌱 <strong>Vertical Aeroponics Initiative</strong> — installing aeroponic towers at BU to study energy/water use and donate produce.
+      </p>
+      <p class="section-paragraph fade-in fade-in-left">
+        ⚡ <strong>BU Energy Insights</strong> — React/Vite dashboard that tracks ISO-NE peak alerts and collects building actions.
+      </p>
+    </div>
+  </section>
+  
+  <!-- Work Experience -->
+  <section id="work" class="section">
+    <div class="content">
+      <p class="section-paragraph fade-in fade-in-right">
+        💻 <strong>IT User Assistant, Harvard DCE</strong> — supported hybrid/asynchronous classes and AV troubleshooting.
+      </p>
+      <p class="section-paragraph fade-in fade-in-left">
+        🖼️ <strong>Museum Ambassador</strong> — coordinated exhibit openings, artist interviews, and student engagement.
+      </p>
+    </div>
+  </section>
+  
+  <!-- Volunteering -->
+  <section id="volunteer" class="section">
+    <div class="content">
+      <p class="section-paragraph fade-in fade-in-left">
+        🍲 <strong>BU Student Food Rescue</strong> — food recovery & redistribution with local partners.
+      </p>
+      <p class="section-paragraph fade-in fade-in-right">
+        🎓 <strong>Kilachand Honors Mentor</strong> — mentoring first-years on academics, community, and well-being.
+      </p>
+    </div>
+  </section>
+  
+  <!-- Contact -->
+  <section id="contact" class="section">
+    <div class="content">
+      <p class="section-paragraph fade-in fade-in-left">
+        ☕ Always happy to chat about tech, sustainability, or projects.
+      </p>
+      <p class="section-paragraph fade-in fade-in-right">
+        📧 <a href="mailto:lapalmer@bu.edu">lapalmer@bu.edu</a> •
+        🔗 <a href="https://www.linkedin.com/in/lydia-palmer-4a2236231/" target="_blank">LinkedIn</a>
+      </p>
+    </div>
+  </section>
+  
+    <!-- New CODE end -->

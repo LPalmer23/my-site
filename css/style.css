@@ -1,227 +1,687 @@
-/* Global Styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+/**************************************************
+ * 0. GLOBAL RESET & BASE
+ **************************************************/
+ * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  body {
-    background-color: black;
-    color: white;
-    font-family: 'Fira Code', monospace;
-    scroll-behavior: smooth;
-  }
-  
-  /* Intro typing screen */
-  #intro {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    padding-left: 40px;
-    align-items: flex-start;
-    font-family: 'Courier Prime', monospace;
-    letter-spacing: 0.05em; 
-    font-size: 1.8rem;
-    color: #f5f5f5; /* or #fdf6e3 for a paper-like feel */
+/* Base body (scroll, font, etc.) */
+body {
+  margin: 0;
+  font-family: 'Courier Prime', monospace;
+  overflow-x: hidden;
+}
 
-    padding-top: 80px;
-  }
-  
-  #typewriter {
-    font-size: 1.8rem;
-    white-space: nowrap;
-    overflow: hidden;
-    border-right: 2px solid white;
-    width: 0;
-    animation: typing 3s steps(30, end) forwards, blink 0.7s step-end infinite;
-  }
-  
-  @keyframes typing {
-    to {
-      width: 24ch;
-    }
-  }
-  @keyframes blink {
-    50% {
-      border-color: transparent;
-    }
-  }
-  
-  /* Navbar hidden at first */
-  #navbar {
-    display: flex;
-    justify-content: center; 
-    align-items: center;
-    gap: 1rem;              
-    opacity: 0;
-    transition: opacity 1.5s ease;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: black;
-    padding: 1rem 0;
-    z-index: 10;
-    flex-wrap: wrap;
-  }
+html,
+body {
+  background-color: #000;
+  color: #eee;
+  margin: 0;      /* duplicate margin reset is OK */
+  min-height: 100%;
+}
 
 
-  #navbar.visible {
-    opacity: 1;
-  }
-  
-  #navbar a {
-    color: white;
-    margin: 0 1rem;
-    text-decoration: none;
-    font-size: 1rem;
-    transition: color 0.3s ease;
-  }
-  
-  #navbar a:hover {
-    color: #0ff;
-  }
-  
-  /* Section layout */
+
+/**************************************************
+ * 20. NAVBAR
+ **************************************************/
+#navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  opacity: 0;
+  transition: opacity 1.5s ease;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: black;
+  padding: 1rem 0;
+  z-index: 10;
+  flex-wrap: wrap;
+}
+
+#navbar.visible {
+  opacity: 1;
+}
+
+#navbar a {
+  color: white;
+  margin: 0 1rem;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+#navbar a:hover {
+  color: rgb(120, 120, 120);
+}
+
+/* ============================================
+   PRETTY PROJECT LINKS (GitHub / Project site)
+============================================ */
+.inline-link{
+  color: #ff8ce0;
+  text-decoration: none;
+  font-weight: 600;
+  position: relative;
+  transition: 0.2s ease;
+}
+
+/* animated underline */
+.inline-link::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 2px;
+  background: currentColor;
+  opacity: 0.35;              /* visible, but subtle */
+  transform: scaleX(1);       /* SHOW underline always */
+  transform-origin: left;
+  transition: 0.2s ease;
+}
+
+
+/* hover glow + color shift */
+.inline-link:hover{
+  color: #caa3ff; 
+  text-shadow: 0 0 10px rgba(255, 140, 224, 0.35);
+}
+
+.inline-link:hover::after{
+  transform: scaleX(1);
+}
+
+
+
+/**************************************************
+ * 30. GENERIC SECTION LAYOUT
+ **************************************************/
+
+.project-card + .project-card {
+  margin-top: 9rem;
+}
+
+#projects-title {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+/* Reduce spacing only for the first content section */
+#projects .content {
+  margin-top: 5rem; /* or 3rem, or 0 depending on how close you want it */
+}
+
+
+
+/**************************************************
+ * 40. LEFT SCROLLING FLOWER SVG (old implementation)
+ * (If you’re now using .side-flower instead, this can later be pruned.)
+ **************************************************/
+
+
+/**************************************************
+ * 50. RESPONSIVE (MOBILE) OVERRIDES
+ **************************************************/
+ @media (max-width: 768px) {
+  body { font-size: 14px; padding: 1rem; }
+  /* keep the rest of your 768px rules */
+}
+
+
+
+
   .section {
-    min-height: 35vh;
-    padding: 4rem 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2rem;
+    font-size: 1.5rem;
+    padding: 2rem 1rem;
   }
-  
-  /* SVG drawing section */
-  #svg-section {
-    background-color: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  #mySVG path {
-    stroke-dasharray: 1000;
-    stroke-dashoffset: 1000;
-    transition: stroke-dashoffset 2s ease-out;
-  }
-  
-  #flower-container path {
-    stroke: white;
-    stroke-width: 2;
-    fill: none;
-    stroke-dasharray: 1000;
-    stroke-dashoffset: 1000;
-    transition: stroke-dashoffset 0.3s linear;
-  }
-  
-  
-  #flower-container svg {
-    height: 1000px;         /* Match SVG height */
-    width: auto;
-  }
-  
 
-  body {
-    margin: 0;
-    font-family: 'Fira Code', monospace;
-    overflow-x: hidden;
-  }
-  
   #flower-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 150px;
-    z-index: 0;
-    pointer-events: none;
-    overflow: visible;
+    display: none; /* Hides heavy SVG on phones */
   }
-  
-  #flower-svg {
-    height: 800vh;
-  width: auto;
-  display: block;
-  margin-left: 0;
-  margin-right: auto;
-  }
-  
-  .typewriter-container {
-    margin-left: 200px; /* Leaves room for flower */
-    padding: 50px;
-    z-index: 1;
-    position: relative;
-  }
-  
+
+  .typewriter-container,
   .content {
-    margin-left: 200px;
-    padding: 50px;
+    margin-left: 0;
+    padding: 1rem;
   }
 
-  #flower-container path {
-    stroke: white;
-    stroke-width: 2;
-    fill: none;
-    
+  #navbar a {
+    font-size: 0.9rem;
   }
+}
 
-  #flower-svg path {
-    stroke: white /* Or whatever color you want */
-    fill: none;
-    stroke-width: 2;
-    stroke-dasharray: 1000; /* Will be overridden dynamically */
-    stroke-dashoffset: 1000;
-    transition: stroke-dashoffset 0.2s linear;
-  }
-  
-  #svg-section {
-    height: 300vh; /* allows for more scroll room */
-    position: relative;
-  }
-  
-  
-  #flower-svg {
-    position: relative;
-    top: 0;
-    left: 0;
-    height: 00vh;
-    width: auto;
-    z-index: 0;
-  }
-  
 
-  @media (max-width: 768px) {
-    body {
-      font-size: 14px;
-      padding: 1rem;
-    }
+/**************************************************
+ * 60. SHARED CONTENT WRAPPER WIDTHS
+ **************************************************/
+#projects .content,
+#work .content,
+#volunteer .content,
+#contact .content {
+  width: 100%;
+  max-width: 100%;
+  /* You already reserve space for the flower with margin-left:200px on .content */
+}
+
+#projects-svg {       /* makes it responsive */
+  /* prevent it from getting too huge */
+  width: clamp(150px, 75vw, 450px); 
+  height: auto;
+  display: block;
+  margin: 0 auto;    /* centers it */
+  position: relative;
+  z-index: 3;        /* keep above background vines */
+  margin-top: 300px;
+  stroke-width: 0.6;
+ 
+}
+
+#car-svg{
+  width: clamp(900px, 120vw, 1300px); /* example that can overflow */
+  height: auto;
+
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+
+  display: block; /* try 3rem, 4rem, 5rem */
   
-    #typewriter {
-      font-size: 1.2rem;
-    }
+}
+
+#projects .content{
+  margin-left: 0;
+}
+
+
+
+#projects {
+  margin-top: 200px;
+}
+
+
+/**************************************************
+ * 70. SCROLL REVEAL ANIMATIONS
+ **************************************************/
+.fade-in-left.appear,
+.fade-in-right.appear {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Centered paragraphs with opposite-side entry animations */
+.section-paragraph {
+  max-width: 68ch;      /* readable width */
+  margin: 1.2rem auto;
+  line-height: 1.7;
+  font-size: 1.1rem;
+  text-align: left;
+  width: min(68ch, calc(90vw - 6rem));
+  font-size: clamp(1rem, 1.6vw, 1.2rem);
   
-    .section {
-      font-size: 1.5rem;
-      padding: 2rem 1rem;
-    }
-  
-    #flower-container {
-      display: none; /* optional: hide SVG if too complex on phones */
-    }
-  
-    .typewriter-container,
-    .content {
-      margin-left: 0;
-      padding: 1rem;
-    }
-  
-    #navbar a {
-      font-size: 0.9rem;
-    }
+}
+
+.fade-in-left,
+.fade-in-right {
+  opacity: 0;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in-left {
+  transform: translateX(-40px);
+}
+
+.fade-in-right {
+  transform: translateX(40px);
+}
+
+.fade-in-left.appear,
+.fade-in-right.appear {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* =========================
+   GLOBAL CARD HIERARCHY
+========================= */
+
+/* Title + subtitle line */
+.card-title-line{
+  margin-bottom: 0.6rem;
+}
+
+.card-title{
+  color: #ff8ce0;
+  font-size: clamp(1.5rem, 2.3vw, 1.8rem);
+  font-weight: 700;
+  letter-spacing: 0.4px;
+}
+
+.card-subtitle{
+  color: rgba(255,255,255,0.75);
+  font-size: clamp(1.05rem, 1.6vw, 1.3rem);
+  font-weight: 500;
+}
+
+/* Links row spacing */
+.card-links{
+  margin-top: 0.2rem;
+  margin-bottom: 1.2rem;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* Chip-style links */
+.pill-link{
+  display: inline-block;
+  padding: 8px 14px;
+  border: 1px solid rgba(255, 140, 224, 0.35);
+  border-radius: 999px;
+  background: rgba(255, 140, 224, 0.06);
+  font-size: 1rem;
+  color: #ffb3ea;
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+
+.pill-link:hover{
+  color: #caa3ff;
+  background: rgba(255, 140, 224, 0.12);
+  text-shadow: 0 0 10px rgba(255, 140, 224, 0.25);
+}
+
+/* ============================================
+   PROJECT TITLE HIERARCHY (Aeroponics + others)
+============================================ */
+.project-title-line{
+  margin-bottom: 0.6rem;
+}
+
+.project-title{
+  color: #ff8ce0;
+  font-size: clamp(1.5rem, 2.3vw, 2rem);
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.project-subtitle{
+  color: rgba(255,255,255,0.75);
+  font-size: clamp(1.05rem, 1.6vw, 1.3rem);
+  font-weight: 500;
+}
+
+/* chip-style links so they look clickable & separate from titles */
+.pill-link{
+  display: inline-block;
+  padding: 8px 14px;
+  border: 1px solid rgba(255, 140, 224, 0.35);
+  border-radius: 999px;
+  background: rgba(255, 140, 224, 0.06);
+  font-size: 1rem;
+}
+
+.pill-link:hover{
+  background: rgba(255, 140, 224, 0.12);
+}
+
+
+
+
+/**************************************************
+ * 80. TYPEWRITER CURSOR
+ **************************************************/
+.cursor {
+  display: inline-block;
+  margin-left: 2px;
+  font: inherit;
+  line-height: 1em;
+  color: #ff69b4; /* pink accent */
+  animation: blink 1s steps(1, end) infinite;
+}
+
+
+
+/**************************************************
+ * 90. INTRO – FINAL LAYOUT & FLOWER FRAME
+ * (These override the earlier #intro / #typewriter styles)
+ **************************************************/
+#intro {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+#intro-ornament {
+  width: clamp(100px, 20vw, 220px);
+  flex-shrink: 0;
+}
+
+#title-flower {
+  width: 100%;
+  height: auto;
+}
+
+#intro.framed {
+  position: relative;
+  flex-direction: column;   /* stack the flower under text */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: clamp(220px, 35vh, 440px);
+  padding: clamp(16px, 2vw, 28px);
+}
+
+
+
+#intro .flower-frame {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+
+
+/* Controls position and scaling of the title flower frame */
+#intro .flower-frame {
+  top: 20%;
+  position: absolute;
+  width: 100%;
+  height: auto;
+  bottom: -80px;
+  left: 50%;
+  transform: translateX(-50%) scale(1.3);
+  pointer-events: none;
+  opacity: 0.9;
+  z-index: 0;
+}
+
+/* Keeps text above the flowers */
+#intro #typewriter {
+  position: relative;
+  z-index: 2;
+}
+
+/* === Title flower scales with text & stays aligned === */
+#intro.framed {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: clamp(280px, 50vh, 560px); /* room for the frame */
+  padding: 0;
+}
+
+
+
+#intro.framed .flower-frame {
+  position: absolute;
+  width: calc(1.1 * min(68ch, 90vw)); /* tie size to text width */
+  aspect-ratio: 1920 / 3080;
+  left: 50%;
+  top: 120%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+
+
+/* ensure text sits above the frame */
+#intro.framed #typewriter {
+  z-index: 1;
+}
+
+/* shared variable for width of typewriter text */
+#intro.framed {
+  --textW: min(68ch, 90vw);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: clamp(220px, 35vh, 440px);
+  padding: clamp(16px, 2vw, 28px);
+}
+
+
+
+/* 1️⃣ Wrapper to hold both intro text + flower */
+.intro-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  overflow: hidden; /* hide overflow just in case */
+}
+
+/* 2️⃣ Intro text stays centered, transparent background */
+#intro.framed {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+}
+
+#typewriter {
+  position: relative;
+  z-index: 3;
+  color: #eee;
+  text-align: center;
+  max-width: 50ch;
+  font-family: 'Special Elite', cursive;
+  font-size: clamp(0.5rem, 2.2vw, 1.6rem);
+  line-height: 1.4;
+}
+
+/* 3️⃣ Flower sits *behind* the text */
+#intro-flower {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -22%);
+  width: 1300px;    /* stays same size; adjust manually */
+  height: auto;
+  z-index: 1;
+  pointer-events: none;
+}
+
+@media (max-width: 980px){
+  #intro-flower{
+    width: 131%;
   }
-  
-  
+}
+
+
+
+
+/**************************************************
+ * 100. SIDE VINES (RIGHT + LEFT)
+ **************************************************/
+.side-flower {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 260px;      /* tweak 140–220px to taste */
+  height: 100vh;     /* lock to viewport height */
+  pointer-events: none;
+  z-index: 0;        /* behind content, above background */
+}
+
+.side-flower.left {
+  left: 0;
+}
+
+.side-flower.right {
+  right: 0;
+}
+
+/* The SVG fills its gutter and does not move with scroll */
+.side-flower svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Mirror the right vine in place (don’t push it off-screen) */
+.side-flower.right svg {
+  transform: scaleX(-1);
+}
+
+/* Make the line visible and crisp; gradient is fine too if added via <defs> */
+.side-flower .st0 {
+  fill: none;
+  stroke: url(#amberRainbow);  /* or stroke: url(#amberRainbow); */
+  stroke-width: 0.6;
+  vector-effect: non-scaling-stroke;
+}
+
+/* Safety: remove inline whitespace around SVGs (padding-top: 2rem;)*/
+.svg-section {
+  line-height: 0;
+}
+
+#work {
+  margin-top: 10rem;
+}
+
+#volunteer {
+  margin-top: 20rem;
+}
+
+#work {
+  scroll-margin-top: 223px; 
+}
+
+#volunteer {
+  scroll-margin-top: 210px; 
+}
+
+#projects 
+{
+  scroll-margin-top: 551px; 
+}
+
+#projects-title {
+  scroll-margin-top: 350px; 
+}
+
+#quantum-svg{
+  display: block;         /* makes margin auto work */ /* top, left/right, bottom */
+  width: clamp(260px, 60vw, 510px);
+  height: auto;
+  margin: 0 auto;    /* centered like the paragraphs */
+  position: relative;
+  z-index: 4;
+
+  transform: translate(-39%, -20%);
+  margin-bottom: -220px;  /* pulls the following paragraph up under it */
+  pointer-events: none;
+  margin-top: 10rem;
+
+
+}
+
+@media (max-width: 980px) {
+  #quantum-svg {
+    transform: translate(-27%, -40%);
+  }
+}
+
+@media (max-width: 800px) {
+  #quantum-svg {
+    transform: translate(-27%, -40%);
+  }
+}
+
+@media (max-width:  650px) {
+  #quantum-svg {
+    transform: translate(-25%, -53%);
+  }
+}
+
+@media (max-width: 540px) {
+  #quantum-svg {
+    transform: translate(-25%, -64%);
+  }
+}
+
+#quantum-svg .st0{
+  fill: none;
+  stroke: #ffffff;        /* or white */
+  stroke-width: 0.6;
+}
+
+#workex-title {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 0 0 1.75rem 0; /* space under the SVG */
+}
+
+#workex-svg {
+  /*width: min(520px, 92vw);*/
+  height: auto;
+  display: block;
+  width: 520px;  
+  margin: 0 auto;
+}
+
+#volunteering-svg {
+  /*width: 100%;*/
+  width: clamp(150px, 75vw, 520px); 
+  height: auto;
+  display: block;
+  margin: 0 auto 24px;
+ 
+}
+
+#contact {
+  text-align: center;
+  margin: 14rem auto 8rem;
+  max-width: 700px;
+}
+
+.contact-intro {
+  margin: 1rem 0 2.5rem;
+  font-size: 1rem;
+  opacity: 0.85;
+}
+
+.contact-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+}
+
+.contact-links a {
+  padding: 0.6rem 1.2rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 213, 244, 0.5);
+  text-decoration: none;
+  font-size: 0.95rem;
+  color: #ffffff;
+  transition: all 0.25s ease;
+}
+
+.contact-links a:hover {
+  background: rgba(255, 213, 244, 0.15);
+  transform: translateY(-2px);
+}
+
+
 
 
